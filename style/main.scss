@@ -1,0 +1,231 @@
+@charset "utf-8";
+
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+
+// Set your brand colors
+$gun-metal: #252A34;
+$platinum: #EAEAEA;
+$radical-red: #FF2E63;
+$azure: #407CDD;
+$burnt-siena: #DD6E42;
+$madder-lake: #CB3B3B;
+
+// Update Bulma's global variables
+$family-sans-serif: 'Libre Baskerville', serif;
+$primary: $platinum;
+$link: $burnt-siena;
+$success: $azure;
+$danger: $radical-red;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+// Update some of Bulma's component variables
+$body-background-color: $gun-metal;
+$control-border-width: 0.125em;
+$input-border-color: transparent;
+$input-shadow: none;
+
+//Update Bulma Box Component
+$box-color: $gun-metal !default;
+$box-background-color: $platinum !default;
+$box-radius : 20px;
+$box-padding: 1.25rem 1.8rem;
+
+//Update Bulma Form Input
+$input-radius: 20px;
+$input-background-color: transparent;
+$input-border-color : $gun-metal;
+$input-focus-border-color : $azure;
+
+// Update Bulma Button
+$button-background-color: $burnt-siena;
+
+// Update Bulma Modal
+$modal-card-body-background-color: $platinum;
+$modal-card-head-background-color: $platinum;
+
+// Import only what you need from Bulma
+@import "../node_modules/bulma/sass/utilities/_all.sass";
+
+@import "../node_modules/bulma/sass/base/_all.sass";
+
+@import "../node_modules/bulma/sass/helpers/_all.sass";
+
+@import "../node_modules/bulma/sass/grid/columns.sass";
+
+@import "../node_modules/bulma/sass/elements/button.sass";
+@import "../node_modules/bulma/sass/elements/title.sass";
+@import "../node_modules/bulma/sass/elements/box.sass";
+@import "../node_modules/bulma/sass/elements/container.sass";
+@import "../node_modules/bulma/sass/elements/notification.sass";
+
+@import "../node_modules/bulma/sass/form/_all.sass";
+/*
+@import "../node_modules/bulma/sass/form/checkbox-radio.sass";
+@import "../node_modules/bulma/sass/form/input-textarea.sass";
+@import "../node_modules/bulma/sass/form/shared.sass";
+@import "../node_modules/bulma/sass/form/tools.sass";
+*/
+
+@import "../node_modules/bulma/sass/components/navbar.sass";
+@import "../node_modules/bulma/sass/components/modal.sass";
+
+@import "../node_modules/bulma/sass/layout/hero.sass";
+@import "../node_modules/bulma/sass/layout/section.sass";
+
+.search-result-text {
+    color: $platinum;
+    text-align: center;
+}
+
+.search-section {
+    background-color: transparent;
+}
+
+.delete svg {
+    fill: $gun-metal;
+    width: 24px;
+    height: 24px;
+}
+
+.card-book {
+    margin: 1.4em auto;
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
+    padding: 10px 20px;
+
+    .book-title {
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin-bottom: 0.5em;
+    }
+    .book-author, .book-year {
+        font-size: 1.1rem;
+        margin-bottom: 0.5em;
+    }
+}
+
+.book-card-button-list
+{
+    float: right;
+}
+
+.book-icon-btn {
+    padding: 10px;
+    background: transparent;
+    svg {
+        width: 1.5em;
+        height: 1.5em;
+    }
+}
+
+.book-delete-btn {
+    @extend .book-icon-btn;
+    fill: $madder-lake;
+}
+
+.book-edit-btn {
+    @extend .book-icon-btn;
+    fill: $gun-metal;
+}
+
+.finished-book-card {
+    @extend .card-book;
+    border: 4px solid $azure;
+    background-color: rgba($color: $azure, $alpha: 0.1)
+}
+
+.unfinished-book-card {
+    @extend .card-book;
+    border: 4px solid $radical-red;
+    background-color: rgba($color: $radical-red, $alpha: 0.1)
+}
+
+
+.button {
+    border-radius: 12px;
+}
+
+#submit-book-btn {
+    margin-top: 0.4em;
+}
+
+.checkbox {
+    display: grid;
+    grid-template-columns: 1em auto;
+    line-height: 1.8;
+    font-size: 1.2rem;
+    gap: 1.5em;
+    vertical-align: center;
+    color: $gun-metal;
+    &:hover {
+        text-decoration: underline;
+        input[type="checkbox"] {
+            border-width: 0.2em;
+        }
+    }
+}
+
+.search-box {
+    padding: 0;
+}
+
+.search-input {
+    height: 2.8em;
+    background-color: $platinum;
+    border: 0px;
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.field.has-addons .control:last-child:not(:only-child) .button {
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    z-index: 10;
+}
+
+.search-button {
+    height: 2.8em;
+    padding: 0 1.5em;
+    border-radius: 20px;
+    svg {
+        fill: $platinum;
+        width: 24px;
+        height: 24px;
+    }
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #fff;
+    margin: 0;
+    border-radius: 9px;
+    background-color: transparent;
+    font: inherit;
+    color: $gun-metal;
+    width: 1.8em;
+    height: 1.8em;
+    border: 0.15em solid $gun-metal;
+    border-radius: 0.4em;
+    display: grid;
+    place-content: center;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 1.2em;
+    height: 1.2em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em $gun-metal;
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}

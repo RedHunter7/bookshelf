@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ShelfBook</title>
+    <link rel="stylesheet" href="style/main.css">
+  </head>
+  <body>
+    <div class="modal delete-confirmation-modal" id="delete-confirmation-modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Delete Confirmation</p>
+          <button class="delete" aria-label="close">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+              <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+              <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/>
+            </svg>
+          </button>
+        </header>
+        <section class="modal-card-body" id="delete-confirmation-modal-body">
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button close-modal is-danger" id="delete-confirm-btn">Delete</button>
+          <button class="button close-modal is-success is-outlined">Cancel</button>
+        </footer>
+      </div>
+    </div>
+ <div class="modal edit-book-modal" id="edit-book-modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Edit Book Data</p>
+          <button class="delete" aria-label="close">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+              <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+              <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/>
+            </svg>
+          </button>
+        </header>
+        <section class="modal-card-body">
+          <div class="field">
+            <label class="label">Title</label>
+            <div class="control">
+              <input class="input" type="text" id="title-edit-field"
+              placeholder="ex : Harry Potter, 1984, Dune">
+              <span class="icon is-small is-right">
+                <i class="fas fa-exclamation-triangle"></i>
+              </span>
+            </div>
+            <p class="help is-danger is-invisible" id="edit-title-invalid-msg">
+              This Title is invalid
+            </p>
+          </div>
+          <div class="field">
+            <label class="label">Author</label>
+            <div class="control">
+              <input class="input" type="text" id="author-edit-field"
+              placeholder="ex : George Orwell, Sir Arthur Conan Doyle">
+              <span class="icon is-small is-right">
+                <i class="fas fa-exclamation-triangle"></i>
+              </span>
+            </div>
+            <p class="help is-danger is-invisible" id="edit-author-invalid-msg">
+              This Author is invalid
+            </p>
+          </div>
+
+          <div class="field">
+            <label class="label">Year</label>
+            <div class="control">
+              <input class="input" type="number" 
+              id="year-edit-field" placeholder="1945">
+              <span class="icon is-small is-right">
+                <i class="fas fa-exclamation-triangle"></i>
+              </span>
+            </div>
+            <p class="help is-danger is-invisible" id="edit-year-invalid-msg">
+              This Year is invalid
+            </p>
+          </div>
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-link" id="edit-book-btn">Edit</button>
+          <button class="button close-modal is-success is-outlined">Cancel</button>
+        </footer>
+      </div>
+    </div>
+   
+   <section id="notification-section"></section> 
+    
+    <div class="container">
+      <div class="columns">
+        <div class="column is-two-third is-offset-one-sixth">
+          <div class="box">
+            <h3 class="title is-3 has-text-centered">Insert New Book</h3>
+  
+            <div class="field">
+              <label class="label">Title</label>
+              <div class="control">
+                <input class="input" type="text" id="title-input-field" 
+                placeholder="ex : Harry Potter, 1984, Dune">
+                <span class="icon is-small is-right">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </span>
+              </div>
+              <p class="help is-danger is-invisible" id="input-title-invalid-msg">
+                This Title is invalid
+              </p>
+            </div>
+  
+            <div class="field">
+              <label class="label">Author</label>
+              <div class="control">
+                <input class="input" type="text" id="author-input-field" 
+                placeholder="ex : George Orwell, Sir Arthur Conan Doyle">
+                <span class="icon is-small is-right">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </span>
+              </div>
+              <p class="help is-danger is-invisible" id="input-author-invalid-msg">
+                This Author is invalid
+              </p>
+            </div>
+  
+            <div class="columns is-vcentered is-centered">
+              <div class="column is-one-third">
+                <div class="field">
+                  <label class="label">Year</label>
+                  <div class="control">
+                    <input class="input" type="number"
+                    id="year-input-field" placeholder="1945">
+                    <span class="icon is-small is-right">
+                      <i class="fas fa-exclamation-triangle"></i>
+                    </span>
+                  </div>
+                  <p class="help is-danger is-invisible" id="input-year-invalid-msg">
+                    This Year is invalid
+                  </p>
+                </div>
+              </div>
+              <div class="column is-narrow" style="padding-top: 20px;">
+                <label class="checkbox">
+                  <input type="checkbox" id="finished-reading-checkbox">
+                  Finished Reading
+                </label>
+              </div>
+              <div class="column">
+                <div class="control">
+                  <button class="button is-link is-fullwidth" id="submit-book-btn">
+                    Submit Book
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="columns box search-section">
+        <div class="column is-8 is-offset-2">
+          <div class="columns is-vcentered">
+            <div class="column is-10">
+              <div class="box search-box">
+                <div class="field has-addons">
+                  <div class="control is-expanded">
+                    <input class="input search-input" type="text" id="search-title-input" placeholder="Search Book Title">
+                  </div>
+                  <div class="control">
+                    <a class="button is-link search-button" id="search-button">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                        <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column is-2">
+              <button class="button is-link" id="reset-search-button">Reset</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered is-hidden">
+        <div class="column is-8" id="search-result-section">
+        </div>
+      </div>
+  
+      <div class="columns">
+        <div class="column is-half">
+          <div class="box">
+            <h4 class="title is-4">Unfinished Book</h4>
+            <div id="unfinished-book-card-list">
+              <div class="unfinished-book-card" book-id="y">
+                <div class="book-card-button-list">
+                  <button class="button book-edit-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                      <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                      <path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/>
+                    </svg>
+                  </button>
+                  <button class="button book-delete-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                      <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                      <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/>
+                    </svg>
+                  </button>
+                 </div>
+                <div class="book-title">Harry Potter</div>
+                <div class="book-author">JK Rowling</div>
+                <div class="book-year is-flex is-justify-content-space-between">
+                  2020
+                  <button class="button is-success book-mark-button mt-4">Mark as finished</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column is-half">
+          <div class="box">
+            <h4 class="title is-4">Finished Book</h4>
+            <div id="finished-book-card-list">
+              <div class="finished-book-card" book-id="x">
+                <div class="book-card-button-list">
+                 <button class="button book-edit-btn">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                     <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                     <path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/>
+                   </svg>
+                 </button>
+                 <button class="button book-delete-btn">
+                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                     <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                     <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/>
+                   </svg>
+                 </button>
+                </div>
+                 <div class="book-title">Harry Potter</div>
+                 <div class="book-author">JK Rowling</div>
+                 <div class="book-year is-flex is-justify-content-space-between">
+                   2020
+                   <button class="button is-danger book-mark-button mt-4">Mark as unfinished</button>
+                 </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+  <script src="js/main.js" type="module"></script>
+</html>
