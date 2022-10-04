@@ -12,15 +12,17 @@ const renderBookCardList = (booksData, finishBookCardListNode, unfinishBookCardL
     unfinishBookCardListNode.removeChild(unfinishBookCardListNode.lastChild)
   }
 
-  booksData.forEach((book) => {
-    const bookCard = renderBookCard(book)
+  if (booksData) {
+    booksData.forEach((book) => {
+      const bookCard = renderBookCard(book)
 
-    if (book.isComplete === true) {
-      finishBookCardListNode.appendChild(bookCard)
-    } else {
-      unfinishBookCardListNode.appendChild(bookCard)
-    }
-  })
+      if (book.isComplete === true) {
+        finishBookCardListNode.appendChild(bookCard)
+      } else {
+        unfinishBookCardListNode.appendChild(bookCard)
+      }
+    })
+  }
 
   // Search Input Manager
   const searchResultSection = document.getElementById('search-result-section')
